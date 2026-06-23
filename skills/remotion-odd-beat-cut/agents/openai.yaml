@@ -1,0 +1,6 @@
+interface:
+  display_name: "ODD Beat Cut"
+  short_description: "Remotion ODD抽帧拼接卡点"
+  default_prompt: "Use $remotion-odd-beat-cut to create an ODD-style beat-cut video with frozen-frame grids."
+policy:
+  allow_implicit_invocation: true

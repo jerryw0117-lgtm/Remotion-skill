@@ -1,0 +1,6 @@
+interface:
+  display_name: "Daily Vlog"
+  short_description: "Remotion日常vlog和探店剪辑"
+  default_prompt: "Use $remotion-daily-vlog to cut my daily vlog footage into a polished short video."
+policy:
+  allow_implicit_invocation: true

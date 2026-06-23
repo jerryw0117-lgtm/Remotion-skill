@@ -1,0 +1,6 @@
+interface:
+  display_name: "Anime Beat Cut"
+  short_description: "Remotion anime二创卡点快剪"
+  default_prompt: "Use $remotion-anime-beat-cut to make a Douyin-style anime beat edit from my clip and music."
+policy:
+  allow_implicit_invocation: true

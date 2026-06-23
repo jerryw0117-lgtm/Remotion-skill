@@ -1,0 +1,16 @@
+**/node_modules/
+**/public/
+**/renders/
+**/analysis/
+**/outputs/
+.DS_Store
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.mp3
+*.m4a
+*.wav
+*.jpg
+*.jpeg
+*.png
