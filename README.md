@@ -22,14 +22,7 @@ zips/
 
 ## 推荐使用方式
 
-### 1. 克隆仓库
-
-```bash
-git clone https://github.com/jerryw0117-lgtm/Remotion-skill.git
-cd Remotion-skill
-```
-
-### 2. 让 Codex 学习对应工程和 skill
+###  让 Codex 学习对应工程和 skill
 
 把你要使用的工程目录和 skill 目录告诉 Codex，例如：
 
@@ -51,7 +44,7 @@ skills/remotion-odd-beat-cut
 帮我制作一个 ODD 卡点视频。
 ```
 
-### 3. 安装 skill 到 Codex
+### 安装 skill 到 Codex
 
 如果想长期复用，把 skill 文件夹复制到本机 Codex skill 目录：
 
