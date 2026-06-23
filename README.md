@@ -1,10 +1,9 @@
 # Remotion 剪辑工程与 Codex Skill 分享包
 
-这个仓库用于分享 3 套 Remotion 视频工程和对应的 Codex 剪辑 skill。
+这个仓库整理了 3 套 Remotion 视频工程和 3 个对应的 Codex 剪辑 skill。  
+使用方如果也是用 Codex，可以直接把工程和 skill 交给 Codex 学习，然后用对应 skill 发起剪辑任务。
 
-为保护原始素材隐私，仓库里没有包含我的视频、音频、图片原素材，也没有包含已经导出的成片预览。别人拿到后，需要放入自己的素材再运行工程。
-
-## 包含内容
+## 目录结构
 
 ```text
 projects/
@@ -18,28 +17,79 @@ skills/
   remotion-odd-beat-cut/        ODD 卡点 skill
 
 zips/
-  三个不含原素材的 clean 压缩包
+  三个按风格拆好的工程 + skill 压缩包
 ```
 
-## 不包含内容
+## 推荐使用方式
 
-仓库刻意排除了这些内容：
+### 1. 克隆仓库
 
-- `public/` 原始视频、音频、照片素材
-- `renders/` 导出的成片和预览图
-- `node_modules/`
-- 任何 `.mp4`、`.mp3`、`.m4a`、`.jpg`、`.png` 等媒体文件
+```bash
+git clone https://github.com/jerryw0117-lgtm/Remotion-skill.git
+cd Remotion-skill
+```
 
-每个工程里都有 `PUBLIC_ASSETS_REQUIRED.md`，里面写了需要自己补哪些素材文件名。
+### 2. 让 Codex 学习对应工程和 skill
 
-## 三套工程怎么选
+把你要使用的工程目录和 skill 目录告诉 Codex，例如：
 
-### 1. 动漫卡点
+```text
+请学习这个 Remotion 工程：
+projects/citywalk-collage-remotion
 
-路径：
+并学习这个 skill：
+skills/remotion-odd-beat-cut
+
+后续我会给你素材，请按这个 ODD 卡点风格帮我剪。
+```
+
+也可以直接给 Codex 说：
+
+```text
+请使用 projects/citywalk-collage-remotion 作为参考工程，
+并使用 skills/remotion-odd-beat-cut 这个 skill，
+帮我制作一个 ODD 卡点视频。
+```
+
+### 3. 安装 skill 到 Codex
+
+如果想长期复用，把 skill 文件夹复制到本机 Codex skill 目录：
+
+```bash
+mkdir -p ~/.codex/skills
+cp -R skills/remotion-odd-beat-cut ~/.codex/skills/
+cp -R skills/remotion-daily-vlog ~/.codex/skills/
+cp -R skills/remotion-anime-beat-cut ~/.codex/skills/
+```
+
+之后就可以在 Codex 里直接这样调用：
+
+```text
+使用 $remotion-odd-beat-cut 帮我剪一个 ODD 卡点视频。
+```
+
+```text
+使用 $remotion-daily-vlog 帮我剪一个日常探店 vlog。
+```
+
+```text
+使用 $remotion-anime-beat-cut 帮我剪一个动漫二创卡点视频。
+```
+
+## 三套风格怎么选
+
+### 动漫卡点
+
+工程：
 
 ```text
 projects/douyin-anime-remotion
+```
+
+skill：
+
+```text
+skills/remotion-anime-beat-cut
 ```
 
 适合：
@@ -47,21 +97,21 @@ projects/douyin-anime-remotion
 - 动漫二创
 - AMV 风格
 - 音乐卡点
-- 大字冲击字幕
 - 快切、闪白、缩放、冻结帧
+- 大字冲击字幕
 
-对应 skill：
+### 日常 Vlog / 探店
 
-```text
-skills/remotion-anime-beat-cut
-```
-
-### 2. 日常 Vlog / 探店
-
-路径：
+工程：
 
 ```text
 projects/daily-vlog-remotion
+```
+
+skill：
+
+```text
+skills/remotion-daily-vlog
 ```
 
 适合：
@@ -70,20 +120,21 @@ projects/daily-vlog-remotion
 - citywalk
 - 探店
 - 食物记录
-- 温和节奏、生活感字幕、自然转场
+- 温和节奏
+- 生活感字幕
 
-对应 skill：
+### ODD 卡点 / 抽帧拼接
 
-```text
-skills/remotion-daily-vlog
-```
-
-### 3. ODD 卡点 / 抽帧拼接
-
-路径：
+工程：
 
 ```text
 projects/citywalk-collage-remotion
+```
+
+skill：
+
+```text
+skills/remotion-odd-beat-cut
 ```
 
 适合：
@@ -95,15 +146,9 @@ projects/citywalk-collage-remotion
 - 暗调电影感
 - 英文大字 spring 弹出
 
-对应 skill：
+## 运行 Remotion 工程
 
-```text
-skills/remotion-odd-beat-cut
-```
-
-## 如何运行工程
-
-进入任意一个工程目录：
+进入任意工程目录：
 
 ```bash
 cd projects/citywalk-collage-remotion
@@ -111,7 +156,8 @@ npm install
 npm run dev
 ```
 
-然后按该工程的 `PUBLIC_ASSETS_REQUIRED.md` 放入自己的素材。
+工程中有 `PUBLIC_ASSETS_REQUIRED.md`，里面列出了需要放入的素材文件名。  
+你可以把自己的视频、音频素材交给 Codex，让 Codex 按工程需要放入对应位置并修改代码。
 
 导出视频：
 
@@ -119,31 +165,29 @@ npm run dev
 npm run render
 ```
 
-不同工程的素材文件名不同，先看对应工程的 `PUBLIC_ASSETS_REQUIRED.md`。
-
-## 如何安装 skill
-
-把 `skills/` 里的某个 skill 文件夹复制到自己的 Codex skill 目录：
+## 给 Codex 的调用示例
 
 ```text
-~/.codex/skills/
+使用 $remotion-odd-beat-cut。
+我会提供几段城市夜景和甜品视频，请参考 projects/citywalk-collage-remotion 的工程结构，
+帮我剪一个 20 秒左右的 ODD 卡点短视频。
 ```
-
-例如：
 
 ```text
-~/.codex/skills/remotion-odd-beat-cut
+使用 $remotion-daily-vlog。
+我会给你一组日常拍摄素材，请参考 projects/daily-vlog-remotion，
+帮我剪成适合抖音发布的日常 vlog。
 ```
-
-之后就可以在 Codex 里这样调用：
 
 ```text
-使用 $remotion-odd-beat-cut 帮我剪一个 ODD 卡点视频
+使用 $remotion-anime-beat-cut。
+我会给你动漫片段和音乐，请参考 projects/douyin-anime-remotion，
+帮我做一个高频卡点二创视频。
 ```
 
-## 分享说明
+## 单独分享某一种风格
 
-如果只想分享某一种风格，可以直接发 `zips/` 里的 clean 包：
+如果只想分享其中一种，可以直接使用 `zips/` 里的压缩包：
 
 ```text
 anime-remotion-skill-project-clean.zip
@@ -151,4 +195,4 @@ daily-vlog-remotion-skill-project-clean.zip
 odd-beat-cut-remotion-skill-project-clean.zip
 ```
 
-这些压缩包同样不包含原素材，适合发给别人学习工程结构和 skill 写法。
+每个压缩包都包含对应工程和对应 skill，适合直接发给另一个 Codex 用户使用。
